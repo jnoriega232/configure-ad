@@ -66,19 +66,17 @@ This tutorial outlines the implementation of on-premises Active Directory within
 <img src="https://i.imgur.com/kbfxN73.png" height="70%" width="70%" alt="Azure Free Account"/> 
 	
 - Log in to DC-1 using Microsoft Remote Desktop
-    - Start --> Windows Administrative Tools --> Windows Defender Firewall with Advanced Security 
-    -Inbound rules.
+    - Start --> Windows Administrative Tools --> Windows Defender Firewall with Advanced Security --> Inbound Rules.
     	- Sort the list by protocols 
-      	- Find Core Networking Diagnostics ICMPv4 and enable these two inbound rules.
+      	- Find Core Networking Diagnostics ICMPv4 and enable these two inbound rules one at a time
 
 <p align="center">
-<img src="https://i.imgur.com/bw6eoLh.png" height="50%" width="50%" alt="Azure Free Account"/> <img src="https://i.imgur.com/BY1Ohgb.png" height="80%" width="80%" alt="Azure Free Services"/>
-</p>
+<img src="https://i.imgur.com/jfK4p7w.png" height="70%" width="70%" alt="Azure Free Account"/>
 
-- Log back into Client-1 and the Command line will start to ping DC-1 successfully.
+- Log back into Client-1 and in Command Prompt you should see the switch from the request timing out to receiving a reply. Thus, the ping to DC-1 is now successful.
     
 <p align="center">
-<img src="https://i.imgur.com/890WIJB.png" height="70%" width="70%" alt="Azure Free Account"/> 
+<img src="https://i.imgur.com/kaSTaTZ.png" height="70%" width="70%" alt="Azure Free Account"/> 
 
 
 <h3>Step 3:  Install Active Directory</h3>
