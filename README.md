@@ -28,7 +28,7 @@ This tutorial outlines the implementation of on-premises Active Directory within
     - 1st Virtual Machine will be the Domain Controller
        - Name: DC-1
        - Image: Windows Server 2022
-       - Take note of the Virtual Network (Vnet) that gets created at this time
+       - Take note of the Virtual Network (Vnet) that gets created at this time.
        
 <p align="center">
 <img src="https://i.imgur.com/AsS2sLq.png" height="70%" width="70%" alt="Azure Free Account"/>
@@ -68,7 +68,7 @@ This tutorial outlines the implementation of on-premises Active Directory within
 - Log in to DC-1 using Microsoft Remote Desktop
     - Start --> Windows Administrative Tools --> Windows Defender Firewall with Advanced Security --> Inbound Rules.
     	- Sort the list by protocols 
-      	- Find Core Networking Diagnostics ICMPv4 and enable these two inbound rules one at a time
+      	- Find Core Networking Diagnostics ICMPv4 and enable these two inbound rules one at a time.
 
 <p align="center">
 <img src="https://i.imgur.com/jfK4p7w.png" height="70%" width="70%" alt="Azure Free Account"/>
@@ -83,34 +83,34 @@ This tutorial outlines the implementation of on-premises Active Directory within
 
 - Log back ito DC-1 
     - Open Server Manager
-    - Select "Add roles and features." Follow the prompts.
-    - At Server Roles, check "Active Directory Domain Services." (Ignore how the picture below already says "Installed") Then select next Add Features. Select next and finish installing.
+    - Select "Add roles and features." Click "Next >" until you get to Server Roles.
+    - At Server Roles, check "Active Directory Domain Services". Then select "Add Features". Select next for any of the remaining dependencies and finish installing.
 
 <p align="center">
-<img src="https://i.imgur.com/DQRVNnm.png" height="80%" width="80%" alt="Azure Free Account"/> <img src="https://i.imgur.com/RpzngRi.png" height="50%" width="50%" alt="Azure Free Services"/>
+<img src="https://i.imgur.com/k7FXshb.png" height="70%" width="70%" alt="Azure Free Account"/> <img src="https://i.imgur.com/gIVOzWp.png" height="50%" width="50%" alt="Azure Free Services"/>
 </p>
 
-   - At the top right of the Server Manager Dashboard, click on the flag.
-        - Select Promote this server to a domain controller.
+   - At the top right of the Server Manager Dashboard, click on the flag containing a yellow triangle with an exclamation point.
+        - Select "Promote this server to a domain controller".
 
 <p align="center">
-<img src="https://i.imgur.com/GOYiTFe.png" height="70%" width="70%" alt="Azure Free Account"/> 
+<img src="https://i.imgur.com/HwP1r74.png" height="70%" width="70%" alt="Azure Free Account"/> 
 	
- - Select Add a new forest
-          - Root domain name: mydomain.com
+ - Select "Add a new forest
+          - Root domain name: mydomain.com (for the purpose of this demonstration we will use something simple: mydomain.com)
  - Select next
           - Create password
- - Select next, follow the prompts and finish up by selecting install. 
+ - Select next for any of the remaining dependencies and finish installing. 
 
 
 <p align="center">
-<img src="https://i.imgur.com/IjfUZ0a.png" height="70%" width="70%" alt="Azure Free Account"/> 
+<img src="https://i.imgur.com/ssGHbwP.png" height="70%" width="70%" alt="Azure Free Account"/> 
 	
 - DC-1 will automatically restart.
 	- Log back into DC-1 as user: mydomain.com\labuser               
 
 <p align="center">
-<img src="https://i.imgur.com/oNp39DK.png" height="70%" width="70%" alt="Azure Free Account"/> 
+<img src="https://i.imgur.com/Cag7Btr.png" height="50%" width="50%" alt="Azure Free Account"/> 
 	
 
 
