@@ -114,27 +114,28 @@ This tutorial outlines the implementation of on-premises Active Directory within
 	
 
 
-<h3>Step 4: Create an Admin and Normal User Account in Active Directory v1.15.8</h3>
+<h3>Step 4: Create an Admin and Normal User Account in Active Directory</h3>
      
-- On DC-1, open up Server Manager
-	- Click tools at the top right hand side
+- Open Active Directory on DC-1 by opening up Server Manager
+	- click on tools in the top right corner
 		- select Active Directory Users and Computers.
 
 <p align="center">
-<img src="https://i.imgur.com/udGHbGs.png" height="70%" width="70%" alt="Azure Free Account"/> 
+<img src="https://i.imgur.com/YAnWOPr.png" height="70%" width="70%" alt="Azure Free Account"/> 
 	
-- Right click mydomain.com -> New -> Select Oranizational Unit (We will be creating 2 folders.)
+- Right-click mydomain.com --> New --> select Oranizational Unit. We will create 2 folders.
 	- Name one _EMPLOYEES and the other _ADMINS
 	
 <p align="center">
-<img src="https://i.imgur.com/5wSZuA4.png" height="70%" width="70%" alt="Azure Free Account"/> 
+<img src="https://i.imgur.com/1TyQDMh.png" height="70%" width="70%" alt="Azure Free Account"/> 
 	
 	
-- Right click mydomain.com and click referesh to sort the new organizational units to the top.
-	- Go to _ADMINS organzational unit -> right click -> New -> User
-		- First/Last name: jane doe
-		- user login name: jane_admin
-			- Select next and create a password 
+- For easier navigation, right-click mydomain.com and click referesh to sort the new organizational units to the top.
+	- Create an admin account by going to _ADMINS organzational unit --> right-click --> New --> User
+		- First name: jane
+		- Last name: doe
+		- User logon name: jane_admin
+			- Click next and create a password 
 				- uncheck all boxes, select next and then select finish
 <p align="center">
 <img src="https://i.imgur.com/nv6jc9p.png" height="70%" width="70%" alt="Azure Free Account"/> <img src="https://i.imgur.com/uLopQTZ.png" height="70%" width="70%" alt="Azure Free Account"/> 
