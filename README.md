@@ -136,18 +136,18 @@ This tutorial outlines the implementation of on-premises Active Directory within
 		- Last name: doe
 		- User logon name: jane_admin
 			- Click next and create a password 
-				- uncheck all boxes, select next and then select finish
+				- Uncheck "User must change password at next logon" for the purpose of this demonstration; select next and then select finish
 <p align="center">
-<img src="https://i.imgur.com/nv6jc9p.png" height="70%" width="70%" alt="Azure Free Account"/> <img src="https://i.imgur.com/uLopQTZ.png" height="70%" width="70%" alt="Azure Free Account"/> 
+<img src="https://i.imgur.com/wWmcwe3.png" height="70%" width="70%" alt="Azure Free Account"/> <img src="https://i.imgur.com/bnqzBW0.png" height="70%" width="70%" alt="Azure Free Account"/><img src="https://i.imgur.com/zyGGXTN.png" height="70%" width="70%" alt="Azure Free Services"/>
+</p>
 	
-- Go to _ADMINS organzational unit -> right click Jane doe -> select properties
-	- Click "member of" tab -> Select Add -> type in domain admins -> Check Names -> OK -> Apply
-- Log out of DC-1 as "labuser" and log back in as “mydomain.com\jane_admin”
+- To make our user an actual domain admin we need to assign it to the "Domain Admin" group: Go to _ADMINS organzational unit --> right click Jane doe --> select Properties --> click "Member Of" tab --> select Add --> type in domain admins --> Check Names --> OK --> make sure Domain Admins is selected --> Apply --> OK
+- Log out of DC-1 as "labuser" and log back in as “mydomain.com\jane_admin” using the password you created with the user jane doe.
 
 
 
 <p align="center">
-<img src="https://i.imgur.com/EapMhBs.png" height="70%" width="70%" alt="Azure Free Account"/> <img src="https://i.imgur.com/vGb8Kx8.png" height="70%" width="70%" alt="Azure Free Services"/>
+<img src="https://i.imgur.com/QNIfnxE.png" height="70%" width="70%" alt="Azure Free Account"/> <img src="https://i.imgur.com/JmZpTx6.png" height="70%" width="70%" alt="Azure Free Services"/>
 </p>
  
      
@@ -155,67 +155,72 @@ This tutorial outlines the implementation of on-premises Active Directory within
 <h3>Step 5: Join Client-1 to your domain (mydomain.com)
 </h3>
 
-- Go back to the Azure portal. 
-	- Go to Client-1 Virtual Machine
-		- On the left hand side select Networking -> select the link next to the NIC -> DNS server -> Custom -> type in DC-1's private IP address -> Save
-		- After it is done updating, select restart and select yes
+- From the Azure portal, we will set Client-1's DNS settings to the Domain Controller's private IP address. 
+	- Go to Client-1 Virtual Machine in Azure
+		- On the left hand side select Networking --> select the link next to the NIC --> DNS server --> Custom --> type in DC-1's private IP address --> Save
+		- When finished updating --> select Restart --> select Yes
 
 <p align="center">
-<img src="https://i.imgur.com/z6UesO7.png" height="70%" width="70%" alt="Azure Free Account"/> <img src="https://i.imgur.com/bt0yK17.png" height="70%" width="70%" alt="Azure Free Services"/>  <img src="https://i.imgur.com/sB5edH5.png" height="70%" width="70%" alt="Azure Free Services"/>
+<img src="https://i.imgur.com/Ngm1DoJ.png" height="70%" width="70%" alt="Azure Free Account"/> <img src="https://i.imgur.com/zczf32d.png" height="70%" width="70%" alt="Azure Free Services"/> <img src="https://i.imgur.com/k79bV82.png" height="70%" width="70%" alt="Azure Free Services"/>
 </p>
 
-- Log back into Client-1 using Microsoft Remote Desktop as original local admin (labuser)
-	- Right click the start menu and select System
-		- On right hand side, select Rename this PC (advanced) -> Change -> Under Member of, select domain -> type mydomain.com and select OK
+- Log back into Client-1 using Microsoft Remote Desktop as our original local admin "labuser"
+	- Right-click the start menu and select System
+		- On the right hand side, select Rename this PC (advanced) --> Change --> Under Member of, select domain --> type mydomain.com --> select OK
 			- Username: mydomain.com\jane_admin
 			- Type in password and press OK
-- Restart the computer 			
+- You must restart your computer to apply these changes --> select Restart Now			
 
 
 <p align="center">
-<img src="https://i.imgur.com/3HxJLpe.png" height="80%" width="80%" alt="Azure Free Account"/> <img src="https://i.imgur.com/J8M4zBU.png" height="50%" width="50%" alt="Azure Free Services"/>
+<img src="https://i.imgur.com/mpnZVAd.png" height="70%" width="70%" alt="Azure Free Account"/> <img src="https://i.imgur.com/JaNkU57.png" height="50%" width="50%" alt="Azure Free Services"/>
 </p>
 
 <h3>Step 6:  Setup Remote Desktop for non-adminitrative users on Client-1
 </h3>
 
-- Log back into Client-1 
-	- use mydomain.com\jane_admin
-		- Right click the start menu and select System
-			- On the right hand side, select Remote Desktop -> under User Accounts, click on select users that can remotely access this PC -> Select add
-			- Type: domain users -> Check Names -> OK. Select Ok again
+- Log back into Client-1 using "mydomain.com\jane_admin"
+		- Right-click the start menu and select System
+			- On the right hand side, select Remote Desktop --> under User Accounts, click on Select users that can remotely access this PC --> select Add --> type: domain users --> Check Names --> OK --> Ok
 
  
  <p align="center">
-<img src="https://i.imgur.com/HgAXVMX.png" height="70%" width="70%" alt="Azure Free Account"/> <img src="https://i.imgur.com/0QDUk5l.png" height="60%" width="60%" alt="Azure Free Services"/>
+<img src="https://i.imgur.com/Yv1np61.png" height="70%" width="70%" alt="Azure Free Account"/> <img src="https://i.imgur.com/ejHCUNB.png" height="60%" width="60%" alt="Azure Free Services"/> 
 </p>
 
 <h3>Step 7:   Create a bunch of additional users and attempt to log into client-1 with one of the users
 </h3>
 
 - Log back into DC-1 as jane_admin
-	- Search for Powershell_ise, right click on it and open as an administrator
-		- At the top left, select new script and paste the contents of the script into it. You can find the script [here](https://github.com/joshmadakor1/AD_PS/blob/master/Generate-Names-Create-Users.ps1).
+	- Search for PowerShell_ISE --> right-click on it and run as administrator --> Yes
+		- In the top left corner select new script --> from the link, copy the raw contents --> paste the contents of the script into PowerShell_ISE. You can find the script [here](https://github.com/joshmadakor1/AD_PS/blob/master/Generate-Names-Create-Users.ps1).
 
 <p align="center">
-<img src="https://i.imgur.com/MpvLIbB.png" height="70%" width="70%" alt="Azure Free Account"/> <img src="https://i.imgur.com/V4vIvre.png" height="70%" width="70%" alt="Azure Free Services"/>
+<img src="https://i.imgur.com/uT9AsCV.png" height="70%" width="70%" alt="Azure Free Account"/> <img src="https://i.imgur.com/MUqvsyN.png" height="70%" width="70%" alt="Azure Free Services"/> <img src="https://i.imgur.com/xTHI7nB.png" height="70%" width="70%" alt="Azure Free Services"/>
 </p>
 
-- Click the green arrow button near the top middle to run the script
-	- Once the users have been created, go back to Active Directory Users and Computers -> mydomain.com -> _EMPLOYEES
-		- You will see all the accounts that were created, in here. 
+- Click the green arrow button near the top middle of PowerShell_ISE to run the script
+	- Now that the users are being created, we can go back to Active Directory to see all of the accounts. Go to Active Directory Users and Computers --> mydomain.com --> _EMPLOYEES 
+
 - You can now log into Client-1 with one of the accounts that were created. 			
 
 <p align="center">
-<img src="https://i.imgur.com/3HN1Nf4.png" height="80%" width="80%" alt="Azure Free Account"/> <img src="https://i.imgur.com/CeE8LGh.png" height="50%" width="50%" alt="Azure Free Services"/>  <img src="https://i.imgur.com/7ZVBp8a.png" height="70%" width="70%" alt="Azure Free Services"/>
+<img src="https://i.imgur.com/9u8SG51.png" height="70%" width="70%" alt="Azure Free Account"/> <img src="https://i.imgur.com/NriysN7.png" height="70%" width="70%" alt="Azure Free Services"/>
 </p>
 
-Lets log into Client-1 with one of the users that were created (in our instance "base.milu", password will be Password1)
+- We will now log into Client-1 with one of the users that were created (in my case, I will use "bat.jafa", password will be Password1).
+	- Go back to Client-1 and log out of jane_admin and log back into Client-1 using the user you've selected.
 
 <p align="center">
-<img src="https://i.imgur.com/EzgHWRs.png" height="70%" width="70%" alt="Azure Free Account"/> <img src="https://i.imgur.com/hYFodxu.png" height="70%" width="70%" alt="Azure Free Services"/>
+<img src="https://i.imgur.com/MhHsg6v.png" height="70%" width="70%" alt="Azure Free Account"/> 
 </p>
 
-
+- Once logged in, search and open Command Prompt to confirm we have logged in to the correct user.
+	- In Command Prompt, type "whoami" to see our user is correct (mydomain.com\bat.jafa)
+	- Then type "hostname" to see we are on Client-1
+	
+<p align="center">
+<img src="https://i.imgur.com/fz0SFoU.png" height="70%" width="70%" alt="Azure Free Account"/> 
+</p>
 
 🎉Congratulations! You have implementated on-premises Active Directory and created users within Azure Virtual Machines!🎉
