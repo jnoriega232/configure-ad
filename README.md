@@ -36,9 +36,9 @@ This tutorial outlines the implementation of on-premises Active Directory within
 
 
  - We need to set DC-1's virtual Network Interface Card (NIC) Private IP address to be static
-     - Go to DC-1's network settings --> select Networking --> select the link next to Network Interface 
-     - IP Configurations --> select "ipconfig1..."
-     - Change Assignment from dynamic to static (this guarantees DC-1's IP address will not change) --> select Save
+     - Go to DC-1's network settings > select Networking > select the link next to Network Interface 
+     - IP Configurations > select "ipconfig1..."
+     - Change Assignment from dynamic to static (this guarantees DC-1's IP address will not change) > select Save
 	   
 <p align="center">
 <img src="https://i.imgur.com/5B66tdZ.png" height="70%" width="70%" alt="Azure Free Account"/> <img src="https://i.imgur.com/2LusfFQ.png" height="70%" width="70%" alt="Azure Free Services"/>  <img src="https://i.imgur.com/il0ARpO.png" height="70%" width="70%" alt="Azure Free Services"/>
@@ -66,7 +66,7 @@ This tutorial outlines the implementation of on-premises Active Directory within
 <img src="https://i.imgur.com/kbfxN73.png" height="70%" width="70%" alt="Azure Free Account"/> 
 	
 - Log in to DC-1 using Microsoft Remote Desktop
-    - Start --> Windows Administrative Tools --> Windows Defender Firewall with Advanced Security --> Inbound Rules.
+    - Start > Windows Administrative Tools > Windows Defender Firewall with Advanced Security > Inbound Rules.
     	- Sort the list by protocols 
       	- Find Core Networking Diagnostics ICMPv4 and enable these two inbound rules one at a time.
 
@@ -83,31 +83,31 @@ This tutorial outlines the implementation of on-premises Active Directory within
 
 - Log back ito DC-1 
     - Open Server Manager
-    - Select "Add roles and features." Click "Next >" until you get to Server Roles.
-    - At Server Roles, check "Active Directory Domain Services". Then select "Add Features". Select next for any of the remaining dependencies and finish installing.
+    - Select Add roles and features > Next > until you get to Server Roles.
+    - At Server Roles, select Active Directory Domain Services > select Add Features > select Next for any of the remaining dependencies and finish installing.
 
 <p align="center">
 <img src="https://i.imgur.com/k7FXshb.png" height="70%" width="70%" alt="Azure Free Account"/> <img src="https://i.imgur.com/gIVOzWp.png" height="50%" width="50%" alt="Azure Free Services"/>
 </p>
 
    - At the top right of the Server Manager Dashboard, click on the flag containing a yellow triangle with an exclamation point.
-        - Select "Promote this server to a domain controller".
+        - Select Promote this server to a domain controller.
 
 <p align="center">
 <img src="https://i.imgur.com/HwP1r74.png" height="70%" width="70%" alt="Azure Free Account"/> 
 	
- - Select "Add a new forest
+ - Select Add a new forest
           - Root domain name: mydomain.com (for the purpose of this demonstration we will use something simple: mydomain.com)
- - Select next
+ - Select Next
           - Create password
- - Select next for any of the remaining dependencies and finish installing. 
+ - Select Next for any of the remaining dependencies and finish installing. 
 
 
 <p align="center">
 <img src="https://i.imgur.com/ssGHbwP.png" height="70%" width="70%" alt="Azure Free Account"/> 
 	
 - DC-1 will automatically restart.
-	- Log back into DC-1 as user: mydomain.com\labuser               
+	- Log back into DC-1 as user: "mydomain.com\labuser"              
 
 <p align="center">
 <img src="https://i.imgur.com/Cag7Btr.png" height="50%" width="50%" alt="Azure Free Account"/> 
@@ -117,21 +117,21 @@ This tutorial outlines the implementation of on-premises Active Directory within
 <h3>Step 4: Create an Admin and Normal User Account in Active Directory</h3>
      
 - Open Active Directory on DC-1 by opening up Server Manager
-	- click on tools in the top right corner
-		- select Active Directory Users and Computers.
+	- Select tools in the top right corner
+		- Select Active Directory Users and Computers.
 
 <p align="center">
 <img src="https://i.imgur.com/YAnWOPr.png" height="70%" width="70%" alt="Azure Free Account"/> 
 	
-- Right-click mydomain.com --> New --> select Oranizational Unit. We will create 2 folders.
-	- Name one _EMPLOYEES and the other _ADMINS
+- Right-click mydomain.com > New > select Oranizational Unit. We will create 2 folders.
+	- Name one "_EMPLOYEES" and the other "_ADMINS"
 	
 <p align="center">
 <img src="https://i.imgur.com/1TyQDMh.png" height="70%" width="70%" alt="Azure Free Account"/> 
 	
 	
 - For easier navigation, right-click mydomain.com and click referesh to sort the new organizational units to the top.
-	- Create an admin account by going to _ADMINS organzational unit --> right-click --> New --> User
+	- Create an admin account by going to _ADMINS organzational unit > right-click > New > User
 		- First name: jane
 		- Last name: doe
 		- User logon name: jane_admin
@@ -141,7 +141,7 @@ This tutorial outlines the implementation of on-premises Active Directory within
 <img src="https://i.imgur.com/wWmcwe3.png" height="70%" width="70%" alt="Azure Free Account"/> <img src="https://i.imgur.com/bnqzBW0.png" height="70%" width="70%" alt="Azure Free Account"/><img src="https://i.imgur.com/zyGGXTN.png" height="70%" width="70%" alt="Azure Free Services"/>
 </p>
 	
-- To make our user an actual domain admin we need to assign it to the "Domain Admin" group: Go to _ADMINS organzational unit --> right click Jane doe --> select Properties --> click "Member Of" tab --> select Add --> type in domain admins --> Check Names --> OK --> make sure Domain Admins is selected --> Apply --> OK
+- To make our user an actual domain admin we need to assign it to the Domain Admin group: Go to _ADMINS organzational unit > right-click Jane Doe > select Properties > select Member Of tab > select Add > enter in domain admins > Check Names > OK > make sure Domain Admins is selected > Apply > OK
 - Log out of DC-1 as "labuser" and log back in as “mydomain.com\jane_admin” using the password you created with the user jane doe.
 
 
@@ -157,8 +157,8 @@ This tutorial outlines the implementation of on-premises Active Directory within
 
 - From the Azure portal, we will set Client-1's DNS settings to the Domain Controller's private IP address. 
 	- Go to Client-1 Virtual Machine in Azure
-		- On the left hand side select Networking --> select the link next to the NIC --> DNS server --> Custom --> type in DC-1's private IP address --> Save
-		- When finished updating --> select Restart --> select Yes
+		- On the left hand side select Networking > select the link next to the NIC > DNS server > Custom > enter in DC-1's private IP address > Save
+		- When finished updating > select Restart > Yes
 
 <p align="center">
 <img src="https://i.imgur.com/Ngm1DoJ.png" height="70%" width="70%" alt="Azure Free Account"/> <img src="https://i.imgur.com/zczf32d.png" height="70%" width="70%" alt="Azure Free Services"/> <img src="https://i.imgur.com/k79bV82.png" height="70%" width="70%" alt="Azure Free Services"/>
@@ -166,10 +166,10 @@ This tutorial outlines the implementation of on-premises Active Directory within
 
 - Log back into Client-1 using Microsoft Remote Desktop as our original local admin "labuser"
 	- Right-click the start menu and select System
-		- On the right hand side, select Rename this PC (advanced) --> Change --> Under Member of, select domain --> type mydomain.com --> select OK
+		- On the right hand side, select Rename this PC (advanced) > Change > Under Member of, select domain > type mydomain.com > OK
 			- Username: mydomain.com\jane_admin
-			- Type in password and press OK
-- You must restart your computer to apply these changes --> select Restart Now			
+			- Type in password and select OK
+- You must restart your computer to apply these changes > select Restart Now			
 
 
 <p align="center">
@@ -181,7 +181,7 @@ This tutorial outlines the implementation of on-premises Active Directory within
 
 - Log back into Client-1 using "mydomain.com\jane_admin"
 		- Right-click the start menu and select System
-			- On the right hand side, select Remote Desktop --> under User Accounts, click on Select users that can remotely access this PC --> select Add --> type: domain users --> Check Names --> OK --> Ok
+			- On the right hand side, select Remote Desktop > under User Accounts, click on Select users that can remotely access this PC > select Add > type: domain users > Check Names > OK > Ok
 
  
  <p align="center">
@@ -192,15 +192,15 @@ This tutorial outlines the implementation of on-premises Active Directory within
 </h3>
 
 - Log back into DC-1 as jane_admin
-	- Search for PowerShell_ISE --> right-click on it and run as administrator --> Yes
-		- In the top left corner select new script --> from the link, copy the raw contents --> paste the contents of the script into PowerShell_ISE. You can find the script [here](https://github.com/joshmadakor1/AD_PS/blob/master/Generate-Names-Create-Users.ps1).
+	- Search for PowerShell_ISE > right-click on it and run as administrator > Yes
+		- In the top left corner select new script > from the link, copy the raw contents > paste the contents of the script into PowerShell_ISE. You can find the script [here](https://github.com/joshmadakor1/AD_PS/blob/master/Generate-Names-Create-Users.ps1).
 
 <p align="center">
 <img src="https://i.imgur.com/uT9AsCV.png" height="70%" width="70%" alt="Azure Free Account"/> <img src="https://i.imgur.com/MUqvsyN.png" height="70%" width="70%" alt="Azure Free Services"/> <img src="https://i.imgur.com/xTHI7nB.png" height="70%" width="70%" alt="Azure Free Services"/>
 </p>
 
-- Click the green arrow button near the top middle of PowerShell_ISE to run the script
-	- Now that the users are being created, we can go back to Active Directory to see all of the accounts. Go to Active Directory Users and Computers --> mydomain.com --> _EMPLOYEES 
+- Select the green arrow button near the top middle of PowerShell_ISE to run the script
+	- Now that the users are being created, we can go back to Active Directory to see all of the accounts. Go to Active Directory Users and Computers > mydomain.com > _EMPLOYEES 
 
 - You can now log into Client-1 with one of the accounts that were created. 			
 
