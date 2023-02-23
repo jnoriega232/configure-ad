@@ -48,10 +48,10 @@ This tutorial outlines the implementation of on-premises Active Directory within
 - 2nd Virtual Machine will be the Client
      - Name: Client-1
      - Image: Windows 10 Pro
-     - we will use the same resource group and Vnet as DC-1
+     - We will use the same resource group and Vnet as DC-1
 
 <p align="center">
-<img src="https://i.imgur.com/FW3r6qA.png" height="70%" width="70%" alt="Azure Free Account"/>
+<img src="https://i.imgur.com/ZxU1LpI.png" height="70%" width="70%" alt="Azure Free Account"/>
 
 
 <h3>Step 2: Ensure Connectivity between the client and Domain Controller</h3>
@@ -161,7 +161,7 @@ This tutorial outlines the implementation of on-premises Active Directory within
 		- When finished updating > select Restart > Yes
 
 <p align="center">
-<img src="https://i.imgur.com/Ngm1DoJ.png" height="70%" width="70%" alt="Azure Free Account"/> <img src="https://i.imgur.com/zczf32d.png" height="70%" width="70%" alt="Azure Free Services"/> <img src="https://i.imgur.com/k79bV82.png" height="70%" width="70%" alt="Azure Free Services"/>
+<img src="https://i.imgur.com/Squ6m0i.png" height="70%" width="70%" alt="Azure Free Account"/> <img src="https://i.imgur.com/me4kDtO.png" height="70%" width="70%" alt="Azure Free Services"/> <img src="https://i.imgur.com/8n0FufP.png" height="70%" width="70%" alt="Azure Free Services"/>
 </p>
 
 - Log back into Client-1 using Microsoft Remote Desktop as our original local admin "labuser"
