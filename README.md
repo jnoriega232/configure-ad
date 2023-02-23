@@ -57,7 +57,7 @@ This tutorial outlines the implementation of on-premises Active Directory within
 <h3>Step 2: Ensure Connectivity between the client and Domain Controller</h3>
 
 - Log in to Client-1 using Microsoft Remote Desktop
-  - Search for Command Prompt and open it
+  - Search and open Command Prompt
   - ping DC-1's private IP Address (in my case, 10.0.0.4)
     - ping -t 10.0.0.4
       - Due to DC-1's firewall blocking ICMP traffic, the request is timing out. To fix this, we need to enable ICMPv4 on DC-1's local Windows firewall. 
@@ -79,7 +79,7 @@ This tutorial outlines the implementation of on-premises Active Directory within
 <img src="https://i.imgur.com/kaSTaTZ.png" height="70%" width="70%" alt="Azure Free Account"/> 
 
 
-<h3>Step 3:  Install Active Directory</h3>
+<h3>Step 3: Install Active Directory</h3>
 
 - Log back ito DC-1 
     - Open Server Manager
@@ -141,7 +141,7 @@ This tutorial outlines the implementation of on-premises Active Directory within
 <img src="https://i.imgur.com/wWmcwe3.png" height="70%" width="70%" alt="Azure Free Account"/> <img src="https://i.imgur.com/bnqzBW0.png" height="70%" width="70%" alt="Azure Free Account"/><img src="https://i.imgur.com/zyGGXTN.png" height="70%" width="70%" alt="Azure Free Services"/>
 </p>
 	
-- To make our user an actual domain admin we need to assign it to the Domain Admin group: Go to _ADMINS organzational unit > right-click Jane Doe > select Properties > select Member Of tab > select Add > enter in domain admins > Check Names > OK > make sure Domain Admins is selected > Apply > OK
+- To make our user an actual domain admin we need to assign it to the Domain Admin group: Go to _ADMINS organzational unit > right-click Jane Doe > select Properties > select Member Of tab > select Add > enter: domain admins > Check Names > OK > make sure Domain Admins is selected > Apply > OK
 - Log out of DC-1 as "labuser" and log back in as “mydomain.com\jane_admin” using the password you created with the user jane doe.
 
 
@@ -166,7 +166,7 @@ This tutorial outlines the implementation of on-premises Active Directory within
 
 - Log back into Client-1 using Microsoft Remote Desktop as our original local admin "labuser"
 	- Right-click the start menu and select System
-		- On the right hand side, select Rename this PC (advanced) > Change > Under Member of, select domain > type mydomain.com > OK
+		- On the right hand side, select Rename this PC (advanced) > Change > Under Member of, select domain > enter: mydomain.com > OK
 			- Username: mydomain.com\jane_admin
 			- Type in password and select OK
 - You must restart your computer to apply these changes > select Restart Now			
@@ -176,19 +176,19 @@ This tutorial outlines the implementation of on-premises Active Directory within
 <img src="https://i.imgur.com/mpnZVAd.png" height="70%" width="70%" alt="Azure Free Account"/> <img src="https://i.imgur.com/JaNkU57.png" height="50%" width="50%" alt="Azure Free Services"/>
 </p>
 
-<h3>Step 6:  Setup Remote Desktop for non-adminitrative users on Client-1
+<h3>Step 6: Setup Remote Desktop for non-adminitrative users on Client-1
 </h3>
 
 - Log back into Client-1 using "mydomain.com\jane_admin"
 		- Right-click the start menu and select System
-			- On the right hand side, select Remote Desktop > under User Accounts, click on Select users that can remotely access this PC > select Add > type: domain users > Check Names > OK > Ok
+			- On the right hand side, select Remote Desktop > under User Accounts, click on Select users that can remotely access this PC > select Add > enter: domain users > Check Names > OK > Ok
 
  
  <p align="center">
 <img src="https://i.imgur.com/Yv1np61.png" height="70%" width="70%" alt="Azure Free Account"/> <img src="https://i.imgur.com/ejHCUNB.png" height="60%" width="60%" alt="Azure Free Services"/> 
 </p>
 
-<h3>Step 7:   Create a bunch of additional users and attempt to log into client-1 with one of the users
+<h3>Step 7: Create a bunch of additional users and attempt to log into client-1 with one of the users
 </h3>
 
 - Log back into DC-1 as jane_admin
@@ -208,7 +208,7 @@ This tutorial outlines the implementation of on-premises Active Directory within
 <img src="https://i.imgur.com/9u8SG51.png" height="70%" width="70%" alt="Azure Free Account"/> <img src="https://i.imgur.com/NriysN7.png" height="70%" width="70%" alt="Azure Free Services"/>
 </p>
 
-- We will now log into Client-1 with one of the users that were created (in my case, I will use "bat.jafa", password will be Password1).
+- We will now log into Client-1 with one of the users that were created (I will use "bat.jafa", password: Password1).
 	- Go back to Client-1 and log out of jane_admin and log back into Client-1 using the user you've selected.
 
 <p align="center">
