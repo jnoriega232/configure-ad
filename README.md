@@ -31,7 +31,7 @@ This tutorial outlines the implementation of on-premises Active Directory within
        - Take note of the Virtual Network (Vnet) that gets created at this time.
        
 <p align="center">
-<img src="https://i.imgur.com/AsS2sLq.png" height="70%" width="70%" alt="Azure Free Account"/>
+<img src="https://i.imgur.com/tvu44Yp.png" height="70%" width="70%" alt="Azure Free Account"/>
 
 
 
@@ -41,7 +41,7 @@ This tutorial outlines the implementation of on-premises Active Directory within
      - Change Assignment from dynamic to static (this guarantees DC-1's IP address will not change) > select Save
 	   
 <p align="center">
-<img src="https://i.imgur.com/5B66tdZ.png" height="70%" width="70%" alt="Azure Free Account"/> <img src="https://i.imgur.com/2LusfFQ.png" height="70%" width="70%" alt="Azure Free Services"/>  <img src="https://i.imgur.com/il0ARpO.png" height="70%" width="70%" alt="Azure Free Services"/>
+<img src="https://i.imgur.com/l9Zakrh.png" height="70%" width="70%" alt="Azure Free Account"/> <img src="https://i.imgur.com/mUw9sHt.png" height="70%" width="70%" alt="Azure Free Services"/>  <img src="https://i.imgur.com/vJkPao0.png" height="70%" width="70%" alt="Azure Free Services"/>
 </p>
 
 
