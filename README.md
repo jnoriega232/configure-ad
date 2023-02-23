@@ -66,9 +66,9 @@ This tutorial outlines the implementation of on-premises Active Directory within
 <img src="https://i.imgur.com/kbfxN73.png" height="70%" width="70%" alt="Azure Free Account"/> 
 	
 - Log in to DC-1 using Microsoft Remote Desktop
-    - Start > Windows Administrative Tools > Windows Defender Firewall with Advanced Security > Inbound Rules.
+    - Start > Windows Administrative Tools > Windows Defender Firewall with Advanced Security > Inbound Rules
     	- Sort the list by protocols 
-      	- Find Core Networking Diagnostics ICMPv4 and enable these two inbound rules one at a time.
+      	- Find Core Networking Diagnostics ICMPv4 and enable these two inbound rules one at a time
 
 <p align="center">
 <img src="https://i.imgur.com/jfK4p7w.png" height="70%" width="70%" alt="Azure Free Account"/>
@@ -84,14 +84,14 @@ This tutorial outlines the implementation of on-premises Active Directory within
 - Log back ito DC-1 
     - Open Server Manager
     - Select Add roles and features > Next > until you get to Server Roles.
-    - At Server Roles, select Active Directory Domain Services > select Add Features > select Next for any of the remaining dependencies and finish installing.
+    - At Server Roles, select Active Directory Domain Services > select Add Features > select Next for any of the remaining dependencies and finish installing
 
 <p align="center">
 <img src="https://i.imgur.com/k7FXshb.png" height="70%" width="70%" alt="Azure Free Account"/> <img src="https://i.imgur.com/gIVOzWp.png" height="50%" width="50%" alt="Azure Free Services"/>
 </p>
 
-   - At the top right of the Server Manager Dashboard, click on the flag containing a yellow triangle with an exclamation point.
-        - Select Promote this server to a domain controller.
+   - At the top right of the Server Manager Dashboard, click on the flag containing a yellow triangle with an exclamation point
+        - Select Promote this server to a domain controller
 
 <p align="center">
 <img src="https://i.imgur.com/HwP1r74.png" height="70%" width="70%" alt="Azure Free Account"/> 
@@ -100,7 +100,7 @@ This tutorial outlines the implementation of on-premises Active Directory within
           - Root domain name: mydomain.com (for the purpose of this demonstration we will use something simple: mydomain.com)
  - Select Next
           - Create password
- - Select Next for any of the remaining dependencies and finish installing. 
+ - Select Next for any of the remaining dependencies and finish installing
 
 
 <p align="center">
@@ -118,7 +118,7 @@ This tutorial outlines the implementation of on-premises Active Directory within
      
 - Open Active Directory on DC-1 by opening up Server Manager
 	- Select tools in the top right corner
-		- Select Active Directory Users and Computers.
+		- Select Active Directory Users and Computers
 
 <p align="center">
 <img src="https://i.imgur.com/YAnWOPr.png" height="70%" width="70%" alt="Azure Free Account"/> 
@@ -202,14 +202,14 @@ This tutorial outlines the implementation of on-premises Active Directory within
 - Select the green arrow button near the top middle of PowerShell_ISE to run the script
 	- Now that the users are being created, we can go back to Active Directory to see all of the accounts. Go to Active Directory Users and Computers > mydomain.com > _EMPLOYEES 
 
-- You can now log into Client-1 with one of the accounts that were created. 			
+- You can now log into Client-1 with one of the accounts that were created			
 
 <p align="center">
 <img src="https://i.imgur.com/9u8SG51.png" height="70%" width="70%" alt="Azure Free Account"/> <img src="https://i.imgur.com/NriysN7.png" height="70%" width="70%" alt="Azure Free Services"/>
 </p>
 
-- We will now log into Client-1 with one of the users that were created (I will use "bat.jafa", password: Password1).
-	- Go back to Client-1 and log out of jane_admin and log back into Client-1 using the user you've selected.
+- We will now log into Client-1 with one of the users that were created (I will use "bat.jafa", password: Password1)
+	- Go back to Client-1 and log out of jane_admin and log back into Client-1 using the user you've selected
 
 <p align="center">
 <img src="https://i.imgur.com/MhHsg6v.png" height="70%" width="70%" alt="Azure Free Account"/> 
