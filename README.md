@@ -165,7 +165,7 @@ This tutorial outlines the implementation of on-premises Active Directory within
 </p>
 
 - Log back into Client-1 using Microsoft Remote Desktop as our original local admin "labuser"
-	- Right-click the start menu and select System
+	- Right-click the Start menu and select System
 		- On the right hand side, select Rename this PC (advanced) > Change > Under Member of, select domain > enter: mydomain.com > OK
 			- Username: mydomain.com\jane_admin
 			- Type in password and select OK
