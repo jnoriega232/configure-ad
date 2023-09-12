@@ -223,4 +223,4 @@ This tutorial outlines the implementation of on-premises Active Directory within
 <img src="https://i.imgur.com/fz0SFoU.png" height="70%" width="70%" alt="Azure Free Account"/> 
 </p>
 
-🎉Congratulations! You have implementated on-premises Active Directory and created users within Azure Virtual Machines!🎉
+🎉Congratulations! You have implemented on-premises Active Directory and created users within Azure Virtual Machines!🎉
